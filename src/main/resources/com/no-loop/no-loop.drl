@@ -1,0 +1,51 @@
+package com.NoLoop
+import com.secbro.drools.model.Person
+
+rule "test-no-loop-rules"
+    no-loop true
+    when
+        $p : Person(age < 10)
+    then
+        $p.setAge($p.getAge() + 1);
+        System.out.println($p.getAge());
+        update($p)
+    end
+
+//在when中什么都不写与写上eval(true)的效果是一样的
+//但是他们和在when中写上$p: Person()的效果是不一样的！
+
+//死循环
+//rule "test-no-loop-rules01"
+//    when
+//        $p : Person(age > 0)
+//    then
+//        $p.setAge($p.getAge() + 1);
+//        System.out.println($p.getAge());
+//        update($p)
+//    end
+
+//不是死循环，只输出一次
+//rule "test-no-loop-rules02"
+//    when
+//        $p : Person()
+//    then
+//        $p.setAge($p.getAge() + 1);
+//        System.out.println($p.getAge());
+//        update($p)
+//    end
+
+//不是死循环，只输出一次
+//rule "test-no-loop-rules03"
+//    when
+//
+//    then
+//        System.out.println("test");
+//    end
+
+//不是死循环，只输出一次，与不写eval(true)时效果一样
+//rule "test-no-loop-rules04"
+//    when
+//        eval(true)
+//    then
+//        System.out.println("test");
+//    end

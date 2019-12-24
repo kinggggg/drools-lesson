@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <!--drools会根据packages属性指定的包从resources（也即classpath路径下查找相应的规则文件）
+    至于规则文件中package 关键字指定的包的值的作用是什么？-->
+    <kbase name="my-rules-learn" packages="com.learnDrools">
+        <ksession name="learn-drools"/>
+    </kbase>
+    <kbase name="rules" packages="com.rules">
+        <ksession name="all-rules"/>
+    </kbase>
+    <kbase packages="com.stateless">
+        <ksession name="stateless-rules" type="stateless"/>
+    </kbase>
+    <kbase name="no-loop-rules" packages="com.no-loop">
+        <ksession name="no-loop-rules"/>
+    </kbase>
+    <kbase name="rule-flow-group" packages="com.ruleFlowGroup">
+        <ksession name="ruleFlowGroup-rules"/>
+    </kbase>
+
+    <kbase name="lock-on-active-kbase" packages="com.lockOnActive">
+        <ksession name="lock-on-active-rules"/>
+    </kbase>
+
+    <kbase name="salience-kbase" packages="com.salienceTest">
+        <ksession name="salience-rules"/>
+    </kbase>
+
+    <kbase name="agendaGroup-kbase" packages="com.agendaGroup">
+        <ksession name="agendaGroup-rules"/>
+    </kbase>
+    <kbase name="autoFocus-kbase" packages="com.autoFocus">
+        <ksession name="autoFocus-rules"/>
+    </kbase>
+    <kbase name="activationGroup-kbase" packages="com.activationGroup">
+        <ksession name="activationGroup-rules"/>
+    </kbase>
+    <kbase name="dateEffective-kbase" packages="com.dateEffective">
+        <ksession name="dateEffective-rules"/>
+    </kbase>
+    <kbase name="timer-kbase" packages="com.timerTest">
+        <ksession name="timerTest-rules"/>
+    </kbase>
+    <kbase name="calender-kbase" packages="com.calenderTest">
+        <ksession name="calenderTest-rules"/>
+    </kbase>
+    <kbase name="lhs-kbase" packages="com.lhs">
+        <ksession name="lhs-rules"/>
+    </kbase>
+    <kbase name="pattern-kbase" packages="com.pattern">
+        <ksession name="pattern-rules"/>
+    </kbase>
+    <kbase name="mapAndList-kbase" packages="com.mapAndList">
+        <ksession name="mapAndList-rules"/>
+    </kbase>
+    <kbase name="insert-kbase" packages="com.insertDemo">
+        <ksession name="insertDemo-rules"/>
+    </kbase>
+    <kbase name="update-kbase" packages="com.updateDemo">
+        <ksession name="updateDemo-rules"/>
+    </kbase>
+    <kbase name="delete-kbase" packages="com.deleteDemo">
+        <ksession name="deleteDemo-rules"/>
+    </kbase>
+    <kbase name="modify-kbase" packages="com.modifyDemo">
+        <ksession name="modifyDemo-rules"/>
+    </kbase>
+    <kbase name="conditional-kbase" packages="com.conditional">
+        <ksession name="conditional-rules"/>
+    </kbase>
+    <kbase name="query-kbase" packages="com.queryDemo">
+        <ksession name="query-rules"/>
+    </kbase>
+    <kbase name="function-kbase" packages="com.functionDemo">
+        <ksession name="function-rules"/>
+    </kbase>
+    <kbase name="global-kbase" packages="com.globalDemo">
+        <ksession name="global-rules"/>
+    </kbase>
+    <kbase name="error-kbase" packages="com.errorDemo">
+        <ksession name="error-rules"/>
+    </kbase>
+    <kbase name="new-type-kbase" packages="com.newType">
+        <ksession name="new-type-rules"/>
+    </kbase>
+    <kbase name="meta-kbase" packages="com.metaDemo">
+        <ksession name="meta-rules"/>
+    </kbase>
+    <kbase name="decision-kbase" packages="com.decision">
+        <ksession name="decision-rules"/>
+    </kbase>
+</kmodule>

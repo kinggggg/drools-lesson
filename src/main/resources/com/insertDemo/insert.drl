@@ -1,0 +1,28 @@
+package com.insertDemo
+import com.secbro.drools.model.Person
+
+rule "insert-demo-rules-1"
+ salience 2
+when
+//当省略不写或者写上eval(true)时，与写上匹配条件匹配时执行的效果是不一样的
+//当省略不写或者写上eval(true)时，不会造成死循环；当写上匹配条件匹配时例如 Person(age == 25)此时会造成死循环
+//eval(true)
+//Person(age == 25)
+then
+    System.out.println("insert-demo-rules-1规则被触发");
+    Person p = new Person();
+    p.setAge(25);
+    insert(p);
+
+end
+
+rule "insert-demo-rules-2"
+salience 1
+//lock-on-active true
+when
+    $p : Person(age == 25)
+then
+    System.out.println("insert-demo-rules-2规则被触发");
+    System.out.println("person.age=" + $p.getAge());
+
+end

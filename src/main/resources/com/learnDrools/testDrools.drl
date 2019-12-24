@@ -1,0 +1,471 @@
+package com.learnDrools;
+
+import com.secbro.drools.model.Person
+import org.apache.commons.lang3.time.DateUtils;
+
+
+import java.util.Map;
+
+rule "02877caf-81c0-4929-9c4b-a31469b7feb3"
+agenda-group "499"
+lock-on-active true
+    when
+        $map : Map(((this["age"] == 18)))
+    then
+        $map.put("02877caf-81c0-4929-9c4b-a31469b7feb3","0");
+end
+
+rule "时间差测试"
+
+    enabled true
+
+    when
+
+    then
+        System.out.println("时间差测试");
+
+end
+
+rule "datetimeTest"
+
+    enabled false
+
+    when
+//        $p : Person(bornDate <= "27-Oct-2009")
+//        $p : Person(bornDate < "27-Oct-2009 09:00:01:300")
+//        $p : Person("2018-08-13 09:00:00" < "2018-08-13 09:00:01")
+//        $p : Person(bornDate > "12-12-2008")
+//        $p : Person(bornDate > new Date())
+//        $p : Person(bornDate > 1534134091)
+//        $p : Person(bornDate > DateUtils.parseDate("2018-08-13 09:00:00", "yyyy-MM-dd HH:mm:ss"))
+
+    then
+        System.out.println("datetime测试");
+
+end
+
+rule "common"
+
+    enabled true
+
+    when
+        Person("Zhangsan" matches "[A-Z][a-z]+")
+    then
+        System.out.println("common测试");
+
+end
+
+rule "booleanTest2"
+
+    enabled false
+
+    when
+//        $p : Person(marry != 123)
+
+    then
+        System.out.println("booleanTest2测试");
+
+end
+
+rule "stringTest"
+
+    enabled true
+
+    when
+        $p : Person(name > "dfb")
+
+    then
+        System.out.println("string测试=====");
+
+end
+
+rule "booleanTest"
+
+    enabled false
+
+    when
+//        $p : Person(marry soundslike 100)
+//        $p : Person(marry not soundslike 100)
+    then
+        System.out.println("boolean测试");
+
+end
+
+rule "longTest"
+
+    enabled false
+
+    when
+//        $p : Person(salary soundslike 100)
+//        $p : Person(salary not soundslike 0.7)
+    then
+        System.out.println("long测试");
+
+end
+
+rule "doubleTest"
+
+    enabled false
+
+    when
+//        $p : Person(balance soundslike 0.7)
+//        $p : Person(balance not soundslike 0.7)
+        $p : Person(balance in (0.7, 20, 18))
+    then
+        System.out.println("double测试");
+
+end
+
+//=========================================================
+
+rule "notInTest"
+
+    enabled false
+
+    when
+        $p : Person(name not in ("lisi"))
+    then
+        System.out.println("not in测试");
+
+end
+
+//in中的值如果为布尔值的话
+rule "inTest04"
+
+//    enabled false
+
+    when
+        $p : Person(marry in (true, false))
+    then
+        System.out.println("inTest04");
+
+end
+
+//in中的值如果为数字的话，不必用引号
+rule "inTest03"
+
+//    enabled false
+
+    when
+        $p : Person(age in (18, 30))
+    then
+        System.out.println("inTest03");
+
+end
+
+//in中的值如果为字符串的话，必须用引号引起来
+rule "inTest02"
+
+//    enabled false
+
+    when
+        $p : Person(name in ("wangwu", "zhangsan"))
+    then
+        System.out.println("inTest02");
+
+end
+
+rule "inTest"
+
+//    enabled false
+
+    when
+        $p : Person(name in ("wangwu", "zhangsan"))
+    then
+        System.out.println("in测试");
+
+end
+
+
+rule "neNullTest"
+
+    enabled false
+
+    when
+        $p : Person(name != null)
+    then
+        System.out.println("!= null测试");
+
+end
+
+rule "eNullTest"
+
+    enabled false
+
+    when
+        $p : Person(name == null)
+    then
+        System.out.println("== null测试");
+
+end
+
+rule "notSoundsLikeTest"
+
+    enabled false
+
+    when
+        $p : Person(name not soundslike "world")
+    then
+        System.out.println("not soundslike测试");
+
+end
+
+rule "soundsLikeTest"
+
+    enabled true
+
+    when
+        $p : Person("2018-08-13 09:00:01" soundslike "2018-08-13 09:00:01")
+    then
+        System.out.println("soundslike测试");
+
+end
+
+rule "notMatchesTest"
+
+    enabled false
+
+    when
+        $p : Person(name not matches "张三")
+    then
+        System.out.println("not matches测试");
+
+end
+
+rule "matchesTest"
+
+    enabled true
+
+    when
+        $p : Person(name matches "^.*张三.*$") // *张三*
+    then
+        System.out.println("111111111111111");
+
+end
+
+rule "neTest"
+
+    enabled false
+
+    when
+        $p : Person((age != 18))
+    then
+        System.out.println("!=测试");
+
+end
+
+rule "eTest"
+
+    enabled false
+
+    when
+        $p : Person((age == 18))
+    then
+        System.out.println("==测试");
+
+end
+
+rule "leTest"
+
+    enabled false
+
+    when
+        $p : Person((age <= 18))
+    then
+        System.out.println("<=测试");
+
+end
+
+rule "lTest"
+
+    enabled false
+
+    when
+        $p : Person((age < 18))
+    then
+        System.out.println("<测试");
+
+end
+
+
+rule "geTest"
+
+    enabled false
+
+    when
+        $p : Person((age >= 18))
+    then
+        System.out.println(">=测试");
+
+end
+
+rule "gTest"
+
+    enabled false
+
+    when
+        $p : Person((age > 18))
+    then
+        System.out.println(">测试");
+
+end
+
+rule "小括号测试"
+
+//    enabled false
+
+    when
+        $p : Person(((age  ==  18))  &&  ((name  matches  "zhangsan")))
+    then
+        System.out.println("小括号测试");
+
+end
+
+//1.
+rule "项目测试"
+
+//    enabled false
+
+    when
+        $p : Person((((name  in  ("hello","zhangsan")))  &&  (age  ==  18))  &&  ((name  matches  "zhangsan")))
+    then
+        System.out.println("项目测试");
+
+end
+
+//1.
+rule "测试Date"
+
+//    enabled false
+
+    when
+        $p : Person((bornDate > "27-Oct-2009"))
+    then
+        System.out.println($p.getBornDate());
+        System.out.println("测试Date");
+
+end
+
+//1.写成"true"会自动进行转换
+//2.写成1报错
+//3.建议不加双引号直接写true或者false
+rule "测试boolean"
+
+//    enabled false
+
+    when
+        $p : Person((balance != null))
+    then
+        System.out.println("测试boolean");
+
+end
+
+//rule "test$"
+//
+////    enabled false
+//
+//    when
+//        $p : Person(test$ == null)
+//    then
+//        System.out.println("test$");
+//
+//end
+
+//1.写成"1" 会自动进行类型转换
+//2.建议不加引号直接写
+rule "测试byte"
+
+//    enabled false
+
+    when
+        $p : Person((gender == 1))
+    then
+        System.out.println("测试byte");
+
+end
+
+//1.char的常量值写成 双引号或者单引号均可以
+//2.单引号IDE报错，但是执行不受影响
+//3.双引号不报错
+rule "测试char"
+
+//    enabled false
+
+    when
+        $p : Person((adult == "1"))
+    then
+        System.out.println("测试char");
+
+end
+
+rule "test04"
+
+//    enabled false
+
+    when
+        $p : Person(age matches 30)
+    then
+
+        System.out.println("test044444");
+
+end
+
+rule "test03"
+
+//    enabled false
+
+    when
+        $p : Person((((age  <  20))  ||  (age  >  18))  &&  ((age  ==  30)))
+    then
+
+        System.out.println("test03");
+
+end
+
+rule "test02"
+
+    enabled false
+
+    when
+        $p : Person((name == "zhangsan"))
+    then
+        System.out.println("test02");
+
+end
+
+rule "test01"
+
+//    enabled false
+
+    when
+        $p : Person( ((name == "zhangsan") && age == 18) || salary == 100)
+    then
+
+        System.out.println("test01");
+
+end
+
+rule "equals-test"
+
+    enabled false
+
+    when
+        $p : Person(name == "zhangsan")
+    then
+        System.out.println("equals-test");
+        System.out.println($p.getName());
+
+end
+
+
+rule "binding-test"
+
+    enabled false
+
+    when
+        $p : Person(age == 18) //对象绑定只能绑定一个
+    then
+        System.out.println("binding-test");
+        System.out.println($p.getAge());
+
+end
