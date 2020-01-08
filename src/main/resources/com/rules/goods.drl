@@ -2,9 +2,9 @@ package com.rules
 import com.secbro.drools.model.Goods;
 
 rule "test-drools5-api"
-agenda-group "test-drools5-api"
+
 when
-    $goods : Goods()
+    $goods : Goods(discount == 100)
 then
     $goods.setDiscount(50);
     System.out.println("test-drools5-api has fired！");

@@ -1,18 +1,20 @@
 package com.learnDrools;
 
 import com.secbro.drools.model.Person
+import com.secbro.drools.model.Goods;
 import org.apache.commons.lang3.time.DateUtils;
 
 
 import java.util.Map;
 
-rule "02877caf-81c0-4929-9c4b-a31469b7feb3"
-agenda-group "499"
-lock-on-active true
-    when
-        $map : Map(((this["age"] == 18)))
-    then
-        $map.put("02877caf-81c0-4929-9c4b-a31469b7feb3","0");
+
+rule "test-drools5-api"
+
+when
+    $goods : Goods(discount == 100)
+then
+    $goods.setDiscount(50);
+    System.out.println("test-drools5-api has fired！");
 end
 
 rule "时间差测试"

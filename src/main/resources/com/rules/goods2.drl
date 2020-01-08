@@ -1,0 +1,10 @@
+package com.rules
+import com.secbro.drools.model.Goods;
+
+rule "test-drools5-api"
+
+when
+
+then
+    System.out.println("good2！");
+end

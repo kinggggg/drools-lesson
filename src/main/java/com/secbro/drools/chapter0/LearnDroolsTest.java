@@ -1,6 +1,7 @@
 package com.secbro.drools.chapter0;
 
 import com.secbro.drools.BaseTest;
+import com.secbro.drools.model.Goods;
 import com.secbro.drools.model.Person;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
@@ -22,6 +23,9 @@ public class LearnDroolsTest extends BaseTest{
     @Test
     public void datetimeNumTest() throws ParseException {
         KieSession kieSession = getKieSessionBySessionName("learn-drools");
+
+        Goods goods = new Goods();
+        kieSession.insert(goods);
 
         int count = kieSession.fireAllRules();
         kieSession.dispose();
