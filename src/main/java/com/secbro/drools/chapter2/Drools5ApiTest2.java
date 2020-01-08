@@ -54,6 +54,17 @@ public class Drools5ApiTest2 {
 
         KnowledgeBase knowledgeBase = kbuilder.newKnowledgeBase();
         Collection<KnowledgePackage> pks = kbuilder.getKnowledgePackages();
+
+        /**
+         * addKnowledgePackages函数的作用（来自7.10.0.Final中KnowledgeBaseImpl的addPackages方法说明）：
+         *
+         * Add a <code>Package</code> to the network. Iterates through the
+         * <code>Package</code> adding Each individual <code>Rule</code> to the
+         * network. Before update network each referenced <code>WorkingMemory</code>
+         * is locked.
+         *
+         * @param newPkgs The package to add.
+         */
         knowledgeBase.addKnowledgePackages(pks);
 
         StatefulKnowledgeSession statefulKnowledgeSession = knowledgeBase.newStatefulKnowledgeSession();
