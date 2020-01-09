@@ -1,10 +1,10 @@
-package com.rules
-import com.secbro.drools.model.Goods;
+package com.rules2
 
-rule "test-drools5-api"
+
+rule "my-rule2"
 
 when
 
 then
-    System.out.println("good2！");
+    System.out.println("rule2！");
 end
